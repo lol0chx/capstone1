@@ -3,21 +3,21 @@ package classes;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Trasnasction_Handler {
+public class Transaction {
     LocalDate Date;
     LocalTime Time;
     String Description;
     String Vendor;
     String amount;
 
-    public Trasnasction_Handler(LocalDate date, LocalTime time, String description, String vendor, String amount) {
+    public Transaction(LocalDate date, LocalTime time, String description, String vendor, String amount) {
         Date = date;
         Time = time;
         Description = description;
         Vendor = vendor;
         this.amount = amount;
     }
-    public Trasnasction_Handler(){
+    public Transaction(){
 
     }
 
