@@ -8,9 +8,9 @@ public class Transaction {
     LocalTime Time;
     String Description;
     String Vendor;
-    String amount;
+    double amount;
 
-    public Transaction(LocalDate date, LocalTime time, String description, String vendor, String amount) {
+    public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
         Date = date;
         Time = time;
         Description = description;
@@ -53,22 +53,22 @@ public class Transaction {
         Vendor = vendor;
     }
 
-    public String getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
     @Override
     public String toString() {
-        return "Trasnasction_Handler{" +
+        return "Transaction{" +
                 "Date=" + Date +
                 ", Time=" + Time +
                 ", Description='" + Description + '\'' +
                 ", Vendor='" + Vendor + '\'' +
-                ", amount='" + amount + '\'' +
+                ", amount=" + amount +
                 '}';
     }
 }
