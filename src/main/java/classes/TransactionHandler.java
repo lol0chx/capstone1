@@ -12,6 +12,7 @@ public class TransactionHandler {
     static public List<Transaction> productLists = new ArrayList<>();
 
     public static List<Transaction> LoadTransactions(){
+        List<Transaction> transactions = new ArrayList<>();
         try {
            // FileReader fileReader = new FileReader("transactions.csv");
            // BufferedReader bufReader = new BufferedReader(fileReader);
@@ -21,7 +22,7 @@ public class TransactionHandler {
             while ((productsRead = bufReader.readLine()) != null) {
                 String[] parts = productsRead.split("\\|");
                 if(parts.length==4) {
-                    Transaction Transactions = new Transaction( LocalDate.parse(parts[0]), LocalTime.parse(parts[1]), parts[2], parts[3], Double.parseDouble(parts[4]) ) ;
+                    Transaction transaction = new Transaction( LocalDate.parse(parts[0]), LocalTime.parse(parts[1]), parts[2], parts[3], Double.parseDouble(parts[4]) ) ;
 
 
                 }
@@ -35,5 +36,7 @@ public class TransactionHandler {
             System.out.println("\nError reading file");
             e.printStackTrace();
         }
+        return transactions;
     }
+
 }
