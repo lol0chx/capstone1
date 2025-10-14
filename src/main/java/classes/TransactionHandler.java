@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionHandler {
-    static public List<Transaction> productLists = new ArrayList<>();
+    //static public List<Transaction> productLists = new ArrayList<>();
 
     public static List<Transaction> LoadTransactions(){
         List<Transaction> transactions = new ArrayList<>();
@@ -18,18 +18,16 @@ public class TransactionHandler {
            // BufferedReader bufReader = new BufferedReader(fileReader);
             BufferedReader bufReader = new BufferedReader (new FileReader("transactions.csv"));
             bufReader.readLine();
-            String productsRead;
-            while ((productsRead = bufReader.readLine()) != null) {
-                String[] parts = productsRead.split("\\|");
-                if(parts.length==4) {
+            String TransactionsRead;
+            while ((TransactionsRead = bufReader.readLine()) != null) {
+                String[] parts = TransactionsRead.split("\\|");
+
                     Transaction transaction = new Transaction( LocalDate.parse(parts[0]), LocalTime.parse(parts[1]), parts[2], parts[3], Double.parseDouble(parts[4]) ) ;
+                    transactions.add(transaction);
 
 
-                }
             }
 
-            //Employee employee = new Employee(Integer.parseInt(parts[0]), parts[1], Double.parseDouble(parts[2]), Double.parseDouble(parts[3]));
-            // System.out.printf("The employee %s with id %d pay is $%.2f\n", employee.getName(), employee.getEmployeeid(), employee.getGrossPay());
             bufReader.close();
         } catch (IOException e) {
             // display stack trace if there was an error
@@ -37,6 +35,11 @@ public class TransactionHandler {
             e.printStackTrace();
         }
         return transactions;
+    }
+    public static void displayTransactions(List<Transaction> Transactions){
+        for(Transaction transaction: Transactions){
+            System.out.println(transaction);
+        }
     }
 
 }
