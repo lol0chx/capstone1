@@ -45,6 +45,9 @@ public class Ledger {
                     System.out.println(Dtransactions);
                 }
                 break;
+            case 4:
+                Reports.ReportsMenu();
+
         }
     }
 }

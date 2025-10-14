@@ -2,6 +2,7 @@ package classes;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Transaction {
     LocalDate Date;
@@ -9,7 +10,8 @@ public class Transaction {
     String Description;
     String Vendor;
     double amount;
-
+    static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+    static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
     public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
         Date = date;
         Time = time;
@@ -64,8 +66,8 @@ public class Transaction {
     @Override
     public String toString() {
         return "Transaction{" +
-                "Date=" + Date +
-                ", Time=" + Time +
+                "Date=" + Date.format(dateFormatter) +
+                ", Time=" + Time.format(timeFormatter) +
                 ", Description='" + Description + '\'' +
                 ", Vendor='" + Vendor + '\'' +
                 ", amount=" + amount +

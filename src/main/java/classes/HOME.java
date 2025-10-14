@@ -40,7 +40,7 @@ public class HOME {
                     TransactionHandler.MakeAPayment();
                     break;
                 case 3:
-                 Ledger.LedgerMenu();
+                    Ledger.LedgerMenu();
                     break;
                 case 4:
                     System.out.println("BYE!");

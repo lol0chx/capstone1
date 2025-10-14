@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class TransactionHandler {
     //static public List<Transaction> productLists = new ArrayList<>();
+   static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+  static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 static Scanner scanner = new Scanner(System.in);
 private static List<Transaction> transactions = new ArrayList<>();
     public static List<Transaction> getTransactions() {
@@ -25,8 +27,9 @@ public static List<Transaction> LoadTransactions(){
             String TransactionsRead;
             while ((TransactionsRead = bufReader.readLine()) != null) {
                 String[] parts = TransactionsRead.split("\\|");
-
-                    Transaction transaction = new Transaction( LocalDate.parse(parts[0]), LocalTime.parse(parts[1]), parts[2], parts[3], Double.parseDouble(parts[4]) ) ;
+LocalDate date = LocalDate.parse(parts[0],dateFormatter);
+LocalTime time = LocalTime.parse(parts[1], timeFormatter);
+                    Transaction transaction = new Transaction( date, time, parts[2], parts[3], Double.parseDouble(parts[4]) ) ;
                     transactions.add(transaction);
             }
             bufReader.close();
@@ -44,7 +47,7 @@ public static List<Transaction> LoadTransactions(){
     }
 
     public static void TakeAPayment(){
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
         System.out.println("HOW MUCH?");
         double Amount = scanner.nextDouble();
         scanner.nextLine();
@@ -60,7 +63,7 @@ public static List<Transaction> LoadTransactions(){
         try {
             FileWriter fileWriter = new FileWriter("transactions.csv" , true);
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
-            bufWriter.write("\n"+deposit.getDate()+"|"+deposit.getTime().format(timeFormatter)+"|"+deposit.getDescription()+"|"+deposit.getVendor()+"|"+deposit.getAmount());
+            bufWriter.write("\n"+deposit.getDate().format(dateFormatter)+"|"+deposit.getTime().format(timeFormatter)+"|"+deposit.getDescription()+"|"+deposit.getVendor()+"|"+deposit.getAmount());
             bufWriter.close();
             System.out.println("Transaction recorded!");
         }
@@ -69,7 +72,7 @@ public static List<Transaction> LoadTransactions(){
         }
     }
     public static void MakeAPayment(){
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
         System.out.println("Enter 0(zero) to exit anytime");
         System.out.println("HOW MUCH?");
         double Amount = scanner.nextDouble();
@@ -88,7 +91,7 @@ public static List<Transaction> LoadTransactions(){
         try {
             FileWriter fileWriter = new FileWriter("transactions.csv" , true);
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
-            bufWriter.write("\n"+payment.getDate()+"|"+payment.getTime().format(timeFormatter)+"|"+payment.getDescription()+"|"+payment.getVendor()+"|"+payment.getAmount());
+            bufWriter.write("\n"+payment.getDate().format(dateFormatter)+"|"+payment.getTime().format(timeFormatter)+"|"+payment.getDescription()+"|"+payment.getVendor()+"|"+payment.getAmount());
             bufWriter.close();
             System.out.println("Transaction recorded!");
         }
