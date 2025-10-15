@@ -22,7 +22,9 @@ public class HOME {
 
     }
     public static void MainMenu(){
-        System.out.println("********WELLCOME************");
+        boolean running = true;
+        while(running) {
+        System.out.println("*********************************WELLCOME************************************");
         System.out.println("1. TAKE A PAYMENT (DEPOSIT)");
         System.out.println("2. MAKE A PAYMENT");
         System.out.println("3. LEDGER");
@@ -30,8 +32,8 @@ public class HOME {
         System.out.println("choose an option:");
         int choice = scanner.nextInt();
         scanner.nextLine();
-        boolean running = true;
-        while(running) {
+
+
             switch (choice) {
                 case 1:
                     TransactionHandler.TakeAPayment();

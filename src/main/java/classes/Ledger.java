@@ -9,6 +9,8 @@ public class Ledger {
     //static List<Transaction> transactions = TransactionHandler.LoadTransactions();
 
     public static void LedgerMenu(){
+        boolean running = true;
+        while(running) {
         List<Transaction> transactions = TransactionHandler.getTransactions();
         System.out.println("1.Display ALl Transactions");
         System.out.println("2.Display Deposits only");
@@ -17,37 +19,42 @@ public class Ledger {
         System.out.println("5.Go back to Main Menu");
         int choice = scanner.nextInt();
         scanner.nextLine();
-        switch (choice){
-            case 1:
-                TransactionHandler.displayTransactions(transactions);
-                break;
-            case 2:
-                List<Transaction> DepositTransaction = new ArrayList<>();
-                for(Transaction Dtransactions: transactions){
 
-                    if( Dtransactions.getAmount()>0){
-                        DepositTransaction.add(Dtransactions);
+            switch (choice) {
+                case 1:
+                    TransactionHandler.displayTransactions(transactions);
+                    break;
+                case 2:
+                    List<Transaction> DepositTransaction = new ArrayList<>();
+                    for (Transaction depositTransactions : transactions) {
+
+                        if (depositTransactions.getAmount() > 0) {
+                            DepositTransaction.add(depositTransactions);
+                        }
                     }
-                }
-                for(Transaction Dtransactions: DepositTransaction){
-                    System.out.println(Dtransactions);
-                }
-                break;
-            case 3:
-                List<Transaction> PaymentsTransaction = new ArrayList<>();
-                for(Transaction Dtransactions: transactions){
-
-                    if( Dtransactions.getAmount()<0){
-                        PaymentsTransaction.add(Dtransactions);
+                    for (Transaction dtransactions : DepositTransaction) {
+                        System.out.println(dtransactions);
                     }
-                }
-                for(Transaction Dtransactions: PaymentsTransaction){
-                    System.out.println(Dtransactions);
-                }
-                break;
-            case 4:
-                Reports.ReportsMenu();
+                    break;
+                case 3:
+                    List<Transaction> PaymentsTransaction = new ArrayList<>();
+                    for (Transaction paymentTransactions : transactions) {
 
+                        if (paymentTransactions.getAmount() < 0) {
+                            PaymentsTransaction.add(paymentTransactions);
+                        }
+                    }
+                    for (Transaction Dtransactions : PaymentsTransaction) {
+                        System.out.println(Dtransactions);
+                    }
+                    break;
+                case 4:
+                    Reports.reportsMenu();
+                    break;
+                case 5:
+                    running =false;
+
+            }
         }
     }
 }
