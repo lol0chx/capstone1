@@ -8,9 +8,10 @@ public class Ledger {
     static Scanner scanner = new Scanner(System.in);
     //static List<Transaction> transactions = TransactionHandler.LoadTransactions();
 
-    public static void LedgerMenu(){
+    public static void ledgerMenu(){
         boolean running = true;
         while(running) {
+            System.out.println("*********************************LEDGER MENU************************************");
         List<Transaction> transactions = TransactionHandler.getTransactions();
         System.out.println("1.Display ALl Transactions");
         System.out.println("2.Display Deposits only");

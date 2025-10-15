@@ -12,12 +12,13 @@ public class Reports {
         boolean running = true;
         while(running) {
             List<Transaction> transactions = TransactionHandler.getTransactions();
-            System.out.println("*********Reports*********");
-            System.out.println("1. Month To Date");
-            System.out.println("2. Previous Month");
-            System.out.println("3. Year To Date");
-            System.out.println("4. Previous Year");
+            System.out.println("*********************************REPORTS************************************");
+            System.out.println("1. Month To Date Transactions");
+            System.out.println("2. Previous Month Transactions");
+            System.out.println("3. Year To Date Transactions");
+            System.out.println("4. Previous Year Transactions");
             System.out.println("5. Search by Vendor");
+            System.out.println("6. Custom Search");
             System.out.println("0. Back");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -25,7 +26,7 @@ public class Reports {
                 case 1:
 
                     LocalDate today = LocalDate.now();
-                    System.out.println("today is " + today + "\n");
+                   // System.out.println("today is " + today + "\n");
                     LocalDate startofMonth = today.withDayOfMonth(1);
                     // System.out.println("start of month is "+startofMonth);
                     List<Transaction> MtDTransactions = new ArrayList<>();
@@ -99,6 +100,10 @@ public class Reports {
                         System.out.println(transaction);
                     }
                     break;
+                case 6:
+                    CustomSearch.customSearchMenu();
+                    break;
+
                 case 0:
                     running =false;
                     break;

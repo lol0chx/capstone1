@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static classes.Ledger.LedgerMenu;
+import static classes.Ledger.ledgerMenu;
 import static classes.TransactionHandler.TakeAPayment;
 import static classes.TransactionHandler.displayTransactions;
 
@@ -24,15 +24,15 @@ public class HOME {
     public static void MainMenu(){
         boolean running = true;
         while(running) {
-        System.out.println("*********************************WELLCOME************************************");
+        System.out.println("\n*********************************WELLCOME************************************");
         System.out.println("1. TAKE A PAYMENT (DEPOSIT)");
         System.out.println("2. MAKE A PAYMENT");
         System.out.println("3. LEDGER");
-        System.out.println("4.EXIT");
+        System.out.println("4. Balance");
+        System.out.println("0.EXIT");
         System.out.println("choose an option:");
         int choice = scanner.nextInt();
         scanner.nextLine();
-
 
             switch (choice) {
                 case 1:
@@ -42,9 +42,12 @@ public class HOME {
                     TransactionHandler.MakeAPayment();
                     break;
                 case 3:
-                    Ledger.LedgerMenu();
+                    Ledger.ledgerMenu();
                     break;
                 case 4:
+                    Balance.balanceSummary();
+                  break;
+                case 0:
                     System.out.println("BYE!");
                     running = false;
                     break;
