@@ -9,15 +9,17 @@ public class Ledger {
     //static List<Transaction> transactions = TransactionHandler.LoadTransactions();
 
     public static void ledgerMenu(){
+
         boolean running = true;
         while(running) {
+
             System.out.println("*********************************LEDGER MENU************************************");
         List<Transaction> transactions = TransactionHandler.getTransactions();
         System.out.println("1.Display ALl Transactions");
         System.out.println("2.Display Deposits only");
         System.out.println("3.Display Payments Made only");
         System.out.println("4.Reports");
-        System.out.println("5.Go back to Main Menu");
+        System.out.println("0.Go back to Main Menu");
         int choice = scanner.nextInt();
         scanner.nextLine();
 
@@ -52,10 +54,11 @@ public class Ledger {
                 case 4:
                     Reports.reportsMenu();
                     break;
-                case 5:
+                case 0:
                     running =false;
 
             }
         }
     }
+
 }
