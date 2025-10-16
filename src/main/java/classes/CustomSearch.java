@@ -22,11 +22,11 @@ public class CustomSearch {
             System.out.println("3. Description");
             System.out.println("4. Amount");
             System.out.println("0. Go back");
-            int choice = scanner.nextInt();
+            String choice = scanner.nextLine();
             scanner.nextLine();
 
             switch (choice) {
-                case 1:
+                case "1":
                     System.out.println("Enter start date in this format(MM/dd/yyyy)");
                     String startDateInput = scanner.nextLine();
                     LocalDate filteredStartDate= null;
@@ -53,7 +53,7 @@ public class CustomSearch {
                         }
                     }
                     break;
-                case 2:
+                case "2":
                     System.out.println("Enter start date in this format(MM/dd/yyyy)");
                     String EndDateInput = scanner.nextLine();
                     LocalDate filteredEndDate= null;
@@ -80,7 +80,7 @@ public class CustomSearch {
                         }
                     }
                     break;
-                case 3:
+                case "3":
                     System.out.println("Enter description to search");
                     String description = scanner.nextLine();
                     List<Transaction> descriptionFilteredList = new ArrayList<>();
@@ -99,7 +99,7 @@ public class CustomSearch {
                         }
                     }
                     break;
-                case 4:
+                case "4":
                     System.out.println("Enter amount");
                     double amountinput = scanner.nextDouble();
                     scanner.nextLine();
@@ -119,8 +119,11 @@ public class CustomSearch {
                         }
                     }
                     break;
-                case 0:
+                case "0":
                     running=false;
+                default:
+                    System.out.println("Invalid Choice try again:");
+                    break;
 
 
             }

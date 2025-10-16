@@ -38,24 +38,24 @@ public class Home {
         System.out.println("4. Balance Summary");
         System.out.println("0.EXIT");
         System.out.println("choose an option:");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        String choice = scanner.nextLine();
+
 
             switch (choice) {
-                case 1:
+                case "1":
                     TransactionHandler.takePayment();
                     break;
-                case 2:
+                case "2":
                     TransactionHandler.makePayment();
                     break;
-                case 3:
+                case "3":
                     Ledger.ledgerMenu();
                     break;
-                case 4:
+                case "4":
                   Balance.balanceSummary();
 
                   break;
-                case 0:
+                case "0":
                     System.out.println("BYE!");
                     running = false;
                     break;

@@ -21,11 +21,11 @@ public class Reports {
             System.out.println("5. Search by Vendor");
             System.out.println("6. Custom Search");
             System.out.println("0. Back");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            String choice = scanner.nextLine();
+
             switch (choice) {
 
-                case 1:  //month to date transactions
+                case "1":  //month to date transactions
 
                     LocalDate startOfMonth = today.withDayOfMonth(1);
                     List<Transaction> monthToDateTransactions = new ArrayList<>();
@@ -42,7 +42,7 @@ public class Reports {
                         System.out.println(transaction);
                     }
                     break;
-                case 2:  // last month transactions
+                case "2":  // last month transactions
                     LocalDate startPrevM = today.minusMonths(1).withDayOfMonth(1);
                     LocalDate endPrevM = startPrevM.withDayOfMonth(startPrevM.lengthOfMonth());
                     List<Transaction> previousMonthTransactions = new ArrayList<>();
@@ -59,7 +59,7 @@ public class Reports {
                         System.out.println(transaction);
                     }
                     break;
-                case 3:   // year to date transactions
+                case "3":   // year to date transactions
                     LocalDate startOfYear = today.withDayOfYear(1);
                     List<Transaction> yearToDateTransactions = new ArrayList<>();
                     // go through all transactions and add them to our year to date transaction list if the date is in the current year
@@ -75,7 +75,7 @@ public class Reports {
                         System.out.println(transaction);
                     }
                     break;
-                case 4:   //Last year Transactions
+                case "4":   //Last year Transactions
 
                     LocalDate startOfPrevYear = today.minusYears(1).withDayOfYear(1);
                     LocalDate endOfPrevYear = startOfPrevYear.withDayOfYear(startOfPrevYear.lengthOfYear());
@@ -98,7 +98,7 @@ public class Reports {
                     break;
 
 
-                case 5:
+                case "5":
                     System.out.println("Enter vendor name to search");
                     String vendorName = scanner.nextLine();
                     List<Transaction> vendorFilteredList = new ArrayList<>();
@@ -112,15 +112,15 @@ public class Reports {
                         System.out.println(transaction);
                     }
                     break;
-                case 6:
+                case "6":
                     CustomSearch.customSearchMenu();
                     break;
 
-                case 0:
+                case "0":
                     running =false;
                     break;
                 default:
-                    System.out.println("wrong input");
+                    System.out.println("wrong input try again");
                     break;
             }
         }

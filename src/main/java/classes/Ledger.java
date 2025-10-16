@@ -20,14 +20,13 @@ public class Ledger {
         System.out.println("3.Display Payments Made only");
         System.out.println("4.Reports");
         System.out.println("0.Go back to Main Menu");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        String choice = scanner.nextLine();
 
             switch (choice) {
-                case 1:
+                case "1":
                     TransactionHandler.displayTransactions(transactions);
                     break;
-                case 2:
+                case "2":
                     List<Transaction> DepositTransaction = new ArrayList<>();
                     for (Transaction depositTransactions : transactions) {
 
@@ -39,7 +38,7 @@ public class Ledger {
                         System.out.println(depositTransactions);
                     }
                     break;
-                case 3:
+                case "3":
                     List<Transaction> PaymentsTransaction = new ArrayList<>();
                     for (Transaction paymentTransactions : transactions) {
 
@@ -51,11 +50,15 @@ public class Ledger {
                         System.out.println(paymentTransaction);
                     }
                     break;
-                case 4:
+                case "4":
                     Reports.reportsMenu();
                     break;
-                case 0:
+                case "0":
                     running =false;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+                    break;
 
             }
         }

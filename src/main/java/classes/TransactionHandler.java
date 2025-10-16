@@ -10,6 +10,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TransactionHandler {
+    // define ANSI color codes
+    public static final String reset = "\u001B[0m";
+    public static final String red = "\u001B[31m";
+    public static final String green = "\u001B[32m";
+    public static final String yellow = "\u001B[33m";
+    public static final String blue = "\u001B[34m";
+    public static final String purple = "\u001B[35m";
+    public static final String cyan = "\u001B[36m";
+    public static final String white = "\u001B[37m";
     // Define our date and time formatter here
    static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
    static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
@@ -44,11 +53,13 @@ public static List<Transaction> LoadTransactions(){
         return transactions;
     }
     public static void displayTransactions(List<Transaction> Transactions){
+        System.out.println("    DATE  |  TIME  |DESCRIPTION| VENDOR | AMOUNT");
         for(Transaction transaction: Transactions){
-            System.out.println(transaction);
+
+            System.out.println(yellow +transaction+reset);
         }
     }
-    // define take a payment method
+    // define  a take a payment method
     public static void takePayment(){
         double amount =0;
         String description ="";
@@ -58,49 +69,47 @@ public static List<Transaction> LoadTransactions(){
         boolean validVendor = false;
 
         // Ask for an amount input and handle wrong input for amount
-        while (!validAmount){ // loops until value is valid
+        while (!validAmount) { // loops until value is valid
             System.out.println("How much? Enter an amount ");
-        }
-        try {
-             amount = scanner.nextDouble();
-            validAmount= true;  // when input is valid this makes the loop exit
-            scanner.nextLine();
-        }catch (InputMismatchException e){
-            System.out.println("Wrong Input! please enter an amount in $ ");
-            scanner.nextLine(); // clear invalid input entered
+
+            try {
+                amount = scanner.nextDouble();
+                scanner.nextLine();
+                validAmount = true;  // when input is valid this makes the loop exit
+
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong Input! please enter an amount in $ ");
+                scanner.nextLine(); // clear invalid input entered
+            }
         }
 
         // Ask for description input and handle wrong input for description
-        while (!validDescription){ // loops until value is valid
+        while (!validDescription) { // loops until value is valid
             System.out.println("Enter description(what are you selling ");
+
+            try {
+                description = scanner.nextLine();
+                validDescription = true;  // when input is valid this makes the loop exit
+
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong Input! please enter a valid description");
+                scanner.nextLine(); // clear invalid input entered
+            }
         }
-        try {
-            description = scanner.nextLine();
-            validDescription= true;  // when input is valid this makes the loop exit
-
-        }catch (InputMismatchException e){
-            System.out.println("Wrong Input! please enter a valid description");
-            scanner.nextLine(); // clear invalid input entered
-        }
-
-
-
-
-
-
 
 
         // Ask for vendor input and handle wrong input for description
-        while (!validDescription){ // loops until value is valid
-            System.out.println("From who(Vendor)??");
-        }
-        try {
-            vendor = scanner.nextLine();
-            validVendor= true;  // when input is valid this makes the loop exit
+        while (!validVendor) { // loops until value is valid
+            System.out.println("To who(Vendor)??");
 
-        }catch (InputMismatchException e){
-            System.out.println("Wrong Input! please enter a valid vendor");
-            scanner.nextLine(); // clear invalid input entered
+            try {
+                vendor = scanner.nextLine();
+                validVendor = true;  // when input is valid this makes the loop exit
+
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong Input! please enter a valid vendor");
+                scanner.nextLine(); // clear invalid input entered
+            }
         }
 
 
@@ -124,20 +133,72 @@ public static List<Transaction> LoadTransactions(){
     // define makepayment method to handle payments
     public static void makePayment(){
 
-        // get the payment information
-        System.out.println("How much? Enter Amount:");
-        double Amount = scanner.nextDouble();
-        scanner.nextLine();
-        System.out.println("Description? what are you selling");
-        String Description = scanner.nextLine();
-        System.out.println("Vendor? To who");
-        String Vendor = scanner.nextLine();
+        double amount =0;
+        String description ="";
+        String vendor="";
+        boolean validAmount = false;
+        boolean validDescription = false;
+        boolean validVendor = false;
+
+        // Ask for an amount input and handle wrong input for amount
+        while (!validAmount) { // loops until value is valid
+            System.out.println("How much? Enter an amount ");
+
+            try {
+                amount = scanner.nextDouble();
+                scanner.nextLine();
+                validAmount = true;  // when input is valid this makes the loop exit
+
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong Input! please enter an amount in $ ");
+                scanner.nextLine(); // clear invalid input entered
+            }
+        }
+
+        // Ask for description input and handle wrong input for description
+        while (!validDescription) { // loops until value is valid
+            System.out.println("Description? what are you buying ");
+
+            try {
+                description = scanner.nextLine();
+                validDescription = true;  // when input is valid this makes the loop exit
+
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong Input! please enter a valid description");
+                scanner.nextLine(); // clear invalid input entered
+            }
+        }
+
+
+        // Ask for vendor input and handle wrong input for description
+        while (!validVendor) { // loops until value is valid
+            System.out.println("Vendor? From who??");
+
+            try {
+                vendor = scanner.nextLine();
+                validVendor = true;  // when input is valid this makes the loop exit
+
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong Input! please enter a valid vendor");
+                scanner.nextLine(); // clear invalid input entered
+            }
+        }
+
+
+
+
+
+
+
+
+
+
         LocalTime Time= LocalTime.now();
         LocalDate Date = LocalDate.now();
 
 
         // create a Transaction Object named payment
-        Transaction payment = new Transaction(Date,Time,Description,Vendor,-Math.abs(Amount)); // use Transaction constructor to assign the values
+        Transaction payment = new Transaction(Date,Time,description,vendor,-Math.abs(amount)); // use Transaction constructor to assign the values
         transactions.add(payment); // add is to our transactions list
         //write it to our transaction file
         try {
