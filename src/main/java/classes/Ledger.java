@@ -33,8 +33,8 @@ public class Ledger {
                             DepositTransaction.add(depositTransactions);
                         }
                     }
-                    for (Transaction dtransactions : DepositTransaction) {
-                        System.out.println(dtransactions);
+                    for (Transaction depositTransactions : DepositTransaction) {
+                        System.out.println(depositTransactions);
                     }
                     break;
                 case 3:
@@ -45,8 +45,8 @@ public class Ledger {
                             PaymentsTransaction.add(paymentTransactions);
                         }
                     }
-                    for (Transaction Dtransactions : PaymentsTransaction) {
-                        System.out.println(Dtransactions);
+                    for (Transaction paymentTransaction : PaymentsTransaction) {
+                        System.out.println(paymentTransaction);
                     }
                     break;
                 case 4:

@@ -7,9 +7,10 @@ import java.util.Scanner;
 
 public class Reports {
     static Scanner scanner = new Scanner(System.in);
-
     public static void reportsMenu(){
         boolean running = true;
+
+        LocalDate today = LocalDate.now();
         while(running) {
             List<Transaction> transactions = TransactionHandler.getTransactions();
             System.out.println("*********************************REPORTS************************************");
@@ -23,69 +24,80 @@ public class Reports {
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
-                case 1:
 
-                    LocalDate today = LocalDate.now();
-                   // System.out.println("today is " + today + "\n");
-                    LocalDate startofMonth = today.withDayOfMonth(1);
-                    // System.out.println("start of month is "+startofMonth);
-                    List<Transaction> MtDTransactions = new ArrayList<>();
+                case 1:  //month to date transactions
+
+                    LocalDate startOfMonth = today.withDayOfMonth(1);
+                    List<Transaction> monthToDateTransactions = new ArrayList<>();
+                    // go through all transactions this month and if the date is in the current month add them to the month to date transaction list
                     for (Transaction transaction : transactions) {
                         LocalDate date = transaction.getDate();
-                        // System.out.println("transaction date"+ date);
-                        if ((date.isAfter(startofMonth) || date.isEqual(startofMonth)) && (date.isBefore(today) || date.isEqual(today))) {
-                            MtDTransactions.add(transaction);
+
+                        if ((date.isAfter(startOfMonth) || date.isEqual(startOfMonth)) && (date.isBefore(today) || date.isEqual(today))) {
+                            monthToDateTransactions.add(transaction);
                         }
                     }
-                    for (Transaction transaction : MtDTransactions) {
+                    //Print the month to date transaction list
+                    for (Transaction transaction : monthToDateTransactions) {
                         System.out.println(transaction);
                     }
                     break;
-                case 2:
-                    LocalDate today1 = LocalDate.now();
-                    LocalDate startPrevM = today1.minusMonths(1).withDayOfMonth(1);
+                case 2:  // last month transactions
+                    LocalDate startPrevM = today.minusMonths(1).withDayOfMonth(1);
                     LocalDate endPrevM = startPrevM.withDayOfMonth(startPrevM.lengthOfMonth());
-                    List<Transaction> PreMoTransactions = new ArrayList<>();
+                    List<Transaction> previousMonthTransactions = new ArrayList<>();
+                    // go through all out transactions and add them to last month transaction list if date is in the last month
                     for (Transaction transaction : transactions) {
                         LocalDate date = transaction.getDate();
                         if (!date.isBefore(startPrevM) && !date.isAfter(endPrevM)) {
-                            PreMoTransactions.add(transaction);
+                            previousMonthTransactions.add(transaction);
                         }
                     }
-                    for (Transaction transaction : PreMoTransactions) {
+
+                    // print the previous month transactions list
+                    for (Transaction transaction : previousMonthTransactions) {
                         System.out.println(transaction);
                     }
                     break;
-                case 3:
-                    LocalDate today2 = LocalDate.now();
-                    LocalDate startOfYear = today2.withDayOfYear(1);
+                case 3:   // year to date transactions
+                    LocalDate startOfYear = today.withDayOfYear(1);
                     List<Transaction> yearToDateTransactions = new ArrayList<>();
+                    // go through all transactions and add them to our year to date transaction list if the date is in the current year
                     for (Transaction transaction : transactions) {
                         LocalDate date = transaction.getDate();
-                        if (!date.isBefore(startOfYear) && !date.isAfter(today2)) {
+                        if (!date.isBefore(startOfYear) && !date.isAfter(today)) {
                             yearToDateTransactions.add(transaction);
+
                         }
                     }
+                    // print out year to date transaction list
                     for (Transaction transaction : yearToDateTransactions) {
                         System.out.println(transaction);
                     }
                     break;
-                case 4:
-                    LocalDate today3 = LocalDate.now();
-                    LocalDate startOfPrevYear = today3.minusYears(1).withDayOfYear(1);
+                case 4:   //Last year Transactions
+
+                    LocalDate startOfPrevYear = today.minusYears(1).withDayOfYear(1);
                     LocalDate endOfPrevYear = startOfPrevYear.withDayOfYear(startOfPrevYear.lengthOfYear());
-                    List<Transaction> prevYearTransactions = new ArrayList<>();
+
+                    List<Transaction> previousYearTransactions = new ArrayList<>();
+                    //go through all transactions and them to our previous year transactions list if the date is in the last year
+
                     for (Transaction transaction : transactions) {
                         LocalDate date = transaction.getDate();
-                        if (!date.isBefore(startOfPrevYear) && !date.isAfter(endOfPrevYear)) {
-                            prevYearTransactions.add(transaction);
+                        if (!date.isBefore(startOfPrevYear) && !date.isAfter(endOfPrevYear)) {  // This checks if the date is within the last year
+                            previousYearTransactions.add(transaction);
 
                         }
                     }
-                    for (Transaction transaction : prevYearTransactions) {
+
+                    // print out previous year transactio list
+                    for (Transaction transaction : previousYearTransactions) {
                         System.out.println(transaction);
                     }
                     break;
+
+
                 case 5:
                     System.out.println("Enter vendor name to search");
                     String vendorName = scanner.nextLine();
@@ -114,4 +126,7 @@ public class Reports {
         }
 
     }
+
+
+
 }

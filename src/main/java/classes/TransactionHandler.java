@@ -9,19 +9,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TransactionHandler {
-    //static public List<Transaction> productLists = new ArrayList<>();
+
    static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-  static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-static Scanner scanner = new Scanner(System.in);
-private static List<Transaction> transactions = new ArrayList<>();
+   static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+   static Scanner scanner = new Scanner(System.in);
+private static final List<Transaction> transactions = new ArrayList<>();
     public static List<Transaction> getTransactions() {
         return transactions;
     }
 public static List<Transaction> LoadTransactions(){
 
         try {
-           // FileReader fileReader = new FileReader("transactions.csv");
-           // BufferedReader bufReader = new BufferedReader(fileReader);
+
             BufferedReader bufReader = new BufferedReader (new FileReader("transactions.csv"));
             bufReader.readLine();
             String TransactionsRead;

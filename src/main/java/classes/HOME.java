@@ -8,17 +8,13 @@ import static classes.Ledger.ledgerMenu;
 import static classes.TransactionHandler.TakeAPayment;
 import static classes.TransactionHandler.displayTransactions;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class HOME {
     static Scanner scanner = new Scanner(System.in);
     static List<Transaction> Transactions = TransactionHandler.LoadTransactions();
     static void main() {
 
         MainMenu();
-        //TransactionHandler.displayTransactions(Transactions);
-
-
 
     }
     public static void MainMenu(){
@@ -45,7 +41,8 @@ public class HOME {
                     Ledger.ledgerMenu();
                     break;
                 case 4:
-                    Balance.balanceSummary();
+                  Balance.balanceSummary();
+
                   break;
                 case 0:
                     System.out.println("BYE!");
