@@ -78,9 +78,11 @@ The Ledger menu has options to :
 reports include:
 
 
-1	Month To Date Transactions
-2	Previous Month Transactions
-3	Year To Date Transactions
-4	Previous Year Transactions
-5	Custom Search
-0	Back to Ledger
+|  |                            |
+|--------|----------------------------|
+| 1 | Month To Date Transactions |
+| 2 | Year To Date Transactions  |
+| 3 | Previous Year Transactions |
+| 4 | Custom Search              |
+| 0 | Back                       |
+ 
