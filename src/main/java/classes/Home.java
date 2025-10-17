@@ -44,9 +44,11 @@ public class Home {
 
             switch (choice) {
                 case "1":
+                    System.out.println("Type"+purple+" exit "+reset +"for vendor or description to cancel transaction");
                     TransactionHandler.takePayment();
                     break;
                 case "2":
+                    System.out.println("Type"+purple+" exit "+reset +"for vendor or description to cancel transaction");
                     TransactionHandler.makePayment();
                     break;
                 case "3":

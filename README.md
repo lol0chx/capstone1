@@ -138,3 +138,32 @@ The Balance Summary calculates and displays :
  
 ![Balace summary ](screenshots/balancesummary.png)
 
+
+## 💡 Interesting Code Snippet
+
+You can enter "exit" for vendor name or description while buying and item or selling an item :
+```java
+ if (description.equalsIgnoreCase("exit")) {
+            validDescription = false;
+            validVendor=false;
+        }
+        if(vendor.equalsIgnoreCase("exit")){
+            validVendor=false;
+            validDescription =false;
+        }
+        
+if (validDescription) {
+            try {
+                FileWriter fileWriter = new FileWriter("transactions.csv", true);
+                BufferedWriter bufWriter = new BufferedWriter(fileWriter);
+                bufWriter.write("\n" + payment.getDate().format(dateFormatter) + "|" + payment.getTime().format(timeFormatter) + "|" + payment.getDescription() + "|" + payment.getVendor() + "|" + payment.getAmount());
+                bufWriter.close();
+                System.out.println(green + "Transaction successfully recorded!" + reset);
+                System.out.println("Amount: " + amount + "\nDescription: " + description + "\nvendor: " + vendor);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        else{
+            System.out.println(yellow+bold+"Transaction canceled"+reset);
+        }
