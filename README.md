@@ -66,7 +66,7 @@ When adding a purchase, it prompts for:
 - **Description** – description of the item
  
 
- **Here's an example of how buying an item works in action**
+ **Here's an example of how buying an item works in action:**
 
 
 
