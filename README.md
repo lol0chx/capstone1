@@ -64,9 +64,14 @@ When adding a purchase, it prompts for:
 - **Vendor Name** – From where or who you're buying ?
 - **Amount** – Sale price
 - **Description** – description of the item
-** Here's an example of how buying an item works in action
+ 
+
+ **Here's an example of how buying an item works in action**
   ![Ledger Menu](screenshots/buyitem.png)
-  3️⃣ Ledger
+
+
+
+  ### 3️⃣ Ledger
 
 **The Ledger menu has options to :**
  
@@ -99,7 +104,8 @@ Filter transactions with different options like.
 | 4 | Search by Name             |
 | 0 | Search by Amount                     |
 
-4️⃣ Balance Summary
+
+### 4️⃣⃣ Balance Summary
 
 The Balance Summary calculates and displays :
 
