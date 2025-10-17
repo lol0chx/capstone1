@@ -230,8 +230,9 @@ public class CustomSearch {
                     break;
 
                 case "5":
+                    int amountMatch=0;
                     boolean validAmount=false;
-                    double amount =
+                    double amount =0;
                     while (!validAmount) { // loops until value is valid
                         System.out.println("Enter an amount ");
 
@@ -241,28 +242,35 @@ public class CustomSearch {
                             validAmount = true;  // when input is valid this makes the loop exit
 
                         } catch (InputMismatchException e) {
-                            System.out.println(bold+red+"Wrong Input! please enter an amount in $ "+reset);
+                            System.out.println(bold+red+"Wrong Input! please enter an amount in numbers "+reset);
                             scanner.nextLine(); // clear invalid input entered
                         }
                     }
 
-                    System.out.println("Enter amount");
-                    double amountinput = scanner.nextDouble();
-                    scanner.nextLine();
+
                     List<Transaction> amountFilteredList = new ArrayList<>();
                     for(Transaction transaction: transactions)
                     {
-                        if(transaction.getAmount()>=amountinput){
+                        // compare both payment and deposit transactions by putting in abs
+                        if(Math.abs(transaction.getAmount())>=amount){
                             amountFilteredList.add(transaction);
+                            amountMatch++;
                         }
                     }
                     if(amountFilteredList.isEmpty()){
                         System.out.println("there is no transaction with that amount ");
                     }
                     else {
+                        System.out.println(cyan + "    DATE  |  TIME  |DESCRIPTION| VENDOR | AMOUNT" + reset);
+                        System.out.println(cyan + "--------------------------------------------------------------------------" + reset);
                         for(Transaction transaction: amountFilteredList){
-                            System.out.println(transaction);
+                            if(transaction.amount>0) {
+                                System.out.println(green+transaction+reset);
+                            }else
+                                System.out.println(red+transaction+reset);
                         }
+                        System.out.println(cyan + "--------------------------------------------------------------------------" + reset);
+                        System.out.println(purple + amountMatch + " transactions in total\n\n\n\n\n" + reset);
                     }
                     break;
                 case "0":
