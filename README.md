@@ -107,6 +107,10 @@ When adding a purchase, it prompts for:
 | 4 | Custom Search              |
 | 0 | Back                       |
 
+**Here's an example of a report output for Month to Date Transactions**
+
+
+![Ledger Menu](screenshots/mtdtxn.png)
 
 #### 🔎 Custom Search
 
