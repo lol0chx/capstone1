@@ -12,7 +12,7 @@ The app allows you to:
 ---
 
 ## 📑 Table of Contents
-- [Home Menu](#Home menu)
+- [Home Menu](#Home-menu)
 - [Ledger](#Add Sale )
 - [Reports](#reports)
 - [Balance Summary](#Balance Summary)
