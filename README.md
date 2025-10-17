@@ -17,7 +17,7 @@ The app allows you to:
 - 📄 View ledger, sorted with most recent first
 - 📉 Built-in reports with real-time filters
 - 🔍 Custom search
-- 📊 Summary stats: income, expenses, and net balance
+- 📊 Summary stats: income, expenses, and net profit
 - 🚫 Smart error handling — app doesn’t crash on bad input
 
 
