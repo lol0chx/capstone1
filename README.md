@@ -100,4 +100,6 @@ Filter transactions with different options like.
 4️⃣ Balance Summary
 
 The Balance Summary calculates and displays:
+
+
 ![Balace summary ](screenshots/balancesummary.png)
