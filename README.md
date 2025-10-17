@@ -71,14 +71,16 @@ When adding a purchase, it prompts for:
 
 
 
+
   ### 3️⃣ Ledger
+
 
 **The Ledger menu has options to :**
  
 
 ![Ledger Menu](screenshots/ledgermenu.png)
 
-📊 Reports
+## 📊 Reports
 
 **reports include:**
 
@@ -92,7 +94,7 @@ When adding a purchase, it prompts for:
 | 0 | Back                       |
 
 
-🔎 Custom Search
+## 🔎 Custom Search
 
 Filter transactions with different options like.
 
@@ -105,7 +107,7 @@ Filter transactions with different options like.
 | 0 | Search by Amount                     |
 
 
-### 4️⃣⃣ Balance Summary
+### 4️⃣Balance Summary
 
 The Balance Summary calculates and displays :
 
