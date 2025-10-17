@@ -12,8 +12,8 @@ The app allows you to:
 ---
 
 ## 📑 Table of Contents
-- [Home Menu](#Home-menu)
-- [Ledger](#Add Sale )
+- [Home Menu](##Home-menu)
+- [Ledger](##Ledger )
 - [Reports](#reports)
 - [Balance Summary](#Balance Summary)
 - [How to Run](#how-to-run)
