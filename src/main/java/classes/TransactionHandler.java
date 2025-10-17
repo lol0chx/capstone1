@@ -19,6 +19,7 @@ public class TransactionHandler {
     public static final String purple = "\u001B[35m";
     public static final String cyan = "\u001B[36m";
     public static final String white = "\u001B[37m";
+    public static final String bold = "\u001B[1m";
     // Define our date and time formatter here
    static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
    static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
@@ -47,18 +48,28 @@ public static List<Transaction> LoadTransactions(){
             bufReader.close();
         } catch (IOException e) {
             // display stack trace if there was an error
-            System.out.println("\nError reading file");
+            System.out.println(red+bold+"\nError reading file"+reset);
             e.printStackTrace();
         }
         return transactions;
     }
     public static void displayTransactions(List<Transaction> Transactions){
-        System.out.println("    DATE  |  TIME  |DESCRIPTION| VENDOR | AMOUNT");
+        int numOfTransactions=0;
+        System.out.println(cyan + "    DATE  |  TIME  |DESCRIPTION| VENDOR | AMOUNT"+ reset);
         for(Transaction transaction: Transactions){
-
-            System.out.println(yellow +transaction+reset);
+            //if its a deposit make it green
+            if(transaction.amount>0){
+            System.out.println(green +transaction+reset);
+            }
+            else
+                System.out.println(red +transaction+reset);
+            numOfTransactions++; // count number of transactions
         }
+       System.out.println(cyan + "-------------------------------------------------------------------------"+reset);
+        System.out.println(purple +numOfTransactions + " transactions in total\n\n\n\n\n"+reset);
     }
+
+
     // define  a take a payment method
     public static void takePayment(){
         double amount =0;
@@ -78,39 +89,18 @@ public static List<Transaction> LoadTransactions(){
                 validAmount = true;  // when input is valid this makes the loop exit
 
             } catch (InputMismatchException e) {
-                System.out.println("Wrong Input! please enter an amount in $ ");
+                System.out.println(bold+red+"Wrong Input! please enter an amount in $ "+reset);
                 scanner.nextLine(); // clear invalid input entered
             }
         }
-
         // Ask for description input and handle wrong input for description
-        while (!validDescription) { // loops until value is valid
-            System.out.println("Enter description(what are you selling ");
 
-            try {
-                description = scanner.nextLine();
-                validDescription = true;  // when input is valid this makes the loop exit
-
-            } catch (InputMismatchException e) {
-                System.out.println("Wrong Input! please enter a valid description");
-                scanner.nextLine(); // clear invalid input entered
-            }
-        }
-
-
+            System.out.println("Enter description(what are you selling) ");
+            description = scanner.nextLine();
         // Ask for vendor input and handle wrong input for description
-        while (!validVendor) { // loops until value is valid
             System.out.println("To who(Vendor)??");
+            vendor = scanner.nextLine();
 
-            try {
-                vendor = scanner.nextLine();
-                validVendor = true;  // when input is valid this makes the loop exit
-
-            } catch (InputMismatchException e) {
-                System.out.println("Wrong Input! please enter a valid vendor");
-                scanner.nextLine(); // clear invalid input entered
-            }
-        }
 
 
         LocalTime time= LocalTime.now();
@@ -118,12 +108,14 @@ public static List<Transaction> LoadTransactions(){
         // create a Transaction object name deposit
         Transaction deposit = new Transaction(date,time,description,vendor,amount);
         transactions.add(deposit);// add it to our transactions list
+        // write the record to transaction file
         try {
             FileWriter fileWriter = new FileWriter("transactions.csv" , true);
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
             bufWriter.write("\n"+deposit.getDate().format(dateFormatter)+"|"+deposit.getTime().format(timeFormatter)+"|"+deposit.getDescription()+"|"+deposit.getVendor()+"|"+deposit.getAmount());
             bufWriter.close();
-            System.out.println("Transaction recorded!");
+            System.out.println(green +"Transaction successfully recorded!"+ reset);
+            System.out.println("Amount: "+ amount + "\nDescription: "+ description + "\nvendor: "+ vendor);
         }
         catch (IOException e) {
             throw new RuntimeException(e);
@@ -150,52 +142,18 @@ public static List<Transaction> LoadTransactions(){
                 validAmount = true;  // when input is valid this makes the loop exit
 
             } catch (InputMismatchException e) {
-                System.out.println("Wrong Input! please enter an amount in $ ");
+                System.out.println(bold+red+"Wrong Input! please enter an amount in $ "+reset);
                 scanner.nextLine(); // clear invalid input entered
             }
         }
-
         // Ask for description input and handle wrong input for description
-        while (!validDescription) { // loops until value is valid
             System.out.println("Description? what are you buying ");
-
-            try {
                 description = scanner.nextLine();
-                validDescription = true;  // when input is valid this makes the loop exit
-
-            } catch (InputMismatchException e) {
-                System.out.println("Wrong Input! please enter a valid description");
-                scanner.nextLine(); // clear invalid input entered
-            }
-        }
-
-
         // Ask for vendor input and handle wrong input for description
-        while (!validVendor) { // loops until value is valid
             System.out.println("Vendor? From who??");
-
-            try {
                 vendor = scanner.nextLine();
-                validVendor = true;  // when input is valid this makes the loop exit
-
-            } catch (InputMismatchException e) {
-                System.out.println("Wrong Input! please enter a valid vendor");
-                scanner.nextLine(); // clear invalid input entered
-            }
-        }
-
-
-
-
-
-
-
-
-
-
         LocalTime Time= LocalTime.now();
         LocalDate Date = LocalDate.now();
-
 
         // create a Transaction Object named payment
         Transaction payment = new Transaction(Date,Time,description,vendor,-Math.abs(amount)); // use Transaction constructor to assign the values
@@ -206,7 +164,8 @@ public static List<Transaction> LoadTransactions(){
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
             bufWriter.write("\n"+payment.getDate().format(dateFormatter)+"|"+payment.getTime().format(timeFormatter)+"|"+payment.getDescription()+"|"+payment.getVendor()+"|"+payment.getAmount());
             bufWriter.close();
-            System.out.println("Transaction recorded!");
+            System.out.println(green +"Transaction successfully recorded!"+ reset);
+            System.out.println("Amount: "+ amount + "\nDescription: "+ description + "\nvendor: "+ vendor);
         }
         catch (IOException e) {
             throw new RuntimeException(e);

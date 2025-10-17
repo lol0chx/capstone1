@@ -15,6 +15,7 @@ public class Home {
     public static final String purple = "\u001B[35m";
     public static final String cyan = "\u001B[36m";
     public static final String white = "\u001B[37m";
+    public static final String bold = "\u001B[1m";
     static Scanner scanner = new Scanner(System.in);
     static List<Transaction> Transactions = TransactionHandler.LoadTransactions(); // Load all our transactions
     static void main() {
@@ -60,7 +61,7 @@ public class Home {
                     running = false;
                     break;
                 default:
-                    System.out.println("Invalid choice. Try again.");
+                    System.out.println(bold+red +"Invalid choice. Try again."+reset);
 
             }
         }
