@@ -22,9 +22,9 @@ The app allows you to:
 
 ## 📑 Table of Contents
 - [Home Menu](#home-menu)
-- [Ledger](#Add Sale Sell Item)
+- [Ledger](#Add Sale )
 - [Reports](#reports)
-- [Balance Summary](#balance-summary)
+- [Balance Summary](#Balance Summary)
 - [How to Run](#how-to-run)
 - [Screenshots](#screenshots)
 
