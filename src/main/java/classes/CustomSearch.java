@@ -134,7 +134,7 @@ public class CustomSearch {
                     int descriptionMatch=0;
                     while (!validDescription)
                     {
-                        System.out.println("Enter vendor name to search");
+                        System.out.println("Enter description to search");
 
                         try {
                             description = scanner.nextLine().trim();
