@@ -80,7 +80,7 @@ When adding a purchase, it prompts for:
 
 ![Ledger Menu](screenshots/ledgermenu.png)
 
-## 📊 Reports
+#### 📊 Reports
 
 **reports include:**
 
@@ -94,7 +94,7 @@ When adding a purchase, it prompts for:
 | 0 | Back                       |
 
 
-## 🔎 Custom Search
+#### 🔎 Custom Search
 
 Filter transactions with different options like.
 
