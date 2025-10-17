@@ -79,14 +79,15 @@ public static List<Transaction> LoadTransactions(){
         boolean validAmount = true;
         boolean validDescription = true;
         boolean validVendor = true;
+        boolean validAmountC =false;
 
         // Ask for an amount input and handle wrong input for amount
-        while (!validAmount) { // loops until value is valid
+        while (!validAmountC) { // loops until value is valid
             System.out.print("How much? Enter an amount ");
             try {
                 amountInput = scanner.nextLine();
                 scanner.nextLine();
-                validAmount = true;  // when input is valid this makes the loop exit
+                validAmountC = true;  // when input is valid this makes the loop exit
                 amount = Double.parseDouble(amountInput);
 
             } catch (InputMismatchException e) {
@@ -94,7 +95,7 @@ public static List<Transaction> LoadTransactions(){
                 scanner.nextLine(); // clear invalid input entered
             }
         }
-
+        scanner.nextLine();
         System.out.print("what item are you selling  ");
         description = scanner.nextLine();
 
@@ -142,19 +143,20 @@ public static List<Transaction> LoadTransactions(){
         String amountInput="";
         String description = "";
         String vendor = "";
-        boolean validAmount = false;
+        boolean validAmount = true;
         boolean validDescription = true;
         boolean validVendor = true;
+        boolean validAmountC =false;
 
 
         // Ask for an amount input and handle wrong input for amount
-        while (!validAmount) { // loops until value is valid
+        while (!validAmountC) { // loops until value is valid
             System.out.print("How much? Enter an amount ");
 
             try {
                 amountInput = scanner.nextLine();
                 scanner.nextLine();
-                validAmount = true;  // when input is valid this makes the loop exit
+                validAmountC = true;  // when input is valid this makes the loop exit
                 amount= Double.parseDouble(amountInput);
 
             } catch (InputMismatchException e) {
@@ -162,7 +164,7 @@ public static List<Transaction> LoadTransactions(){
                 scanner.nextLine(); // clear invalid input entered
             }
         }
-
+       scanner.nextLine();
         System.out.print("Description? what are you buying ");
         description = scanner.nextLine();
 
