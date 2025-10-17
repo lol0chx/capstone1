@@ -57,7 +57,7 @@ public static List<Transaction> LoadTransactions(){
         int numOfTransactions=0;
         System.out.println(cyan + "    DATE  |  TIME  |DESCRIPTION| VENDOR | AMOUNT"+ reset);
         for(Transaction transaction: Transactions){
-            //if its a deposit make it green
+            //if it's a deposit make it green
             if(transaction.amount>0){
             System.out.println(green +transaction+reset);
             }
@@ -72,10 +72,11 @@ public static List<Transaction> LoadTransactions(){
 
     // define  a take a payment method
     public static void takePayment() {
-        double amount = 0;
+        String amountInput ="";
+        double amount =0;
         String description = "";
         String vendor = "";
-        boolean validAmount = false;
+        boolean validAmount = true;
         boolean validDescription = true;
         boolean validVendor = true;
 
@@ -83,9 +84,10 @@ public static List<Transaction> LoadTransactions(){
         while (!validAmount) { // loops until value is valid
             System.out.print("How much? Enter an amount ");
             try {
-                amount = scanner.nextDouble();
+                amountInput = scanner.nextLine();
                 scanner.nextLine();
                 validAmount = true;  // when input is valid this makes the loop exit
+                amount = Double.parseDouble(amountInput);
 
             } catch (InputMismatchException e) {
                 System.out.println(bold + red + "Wrong Input! please enter an amount in $ " + reset);
@@ -102,14 +104,12 @@ public static List<Transaction> LoadTransactions(){
 
         //enter key word "exit" to cancel transaction
 
-        if (description.equalsIgnoreCase("exit")) {
+        if (description.equalsIgnoreCase("exit") || vendor.equalsIgnoreCase("exit") || amountInput.equalsIgnoreCase("exit")) {
             validDescription = false;
             validVendor=false;
+            validAmount =false;
         }
-        if(vendor.equalsIgnoreCase("exit")){
-            validVendor=false;
-            validDescription =false;
-        }
+
         LocalTime time = LocalTime.now();
         LocalDate date = LocalDate.now();
         // create a Transaction object name deposit
@@ -139,6 +139,7 @@ public static List<Transaction> LoadTransactions(){
     public static void makePayment() {
 
         double amount = 0;
+        String amountInput="";
         String description = "";
         String vendor = "";
         boolean validAmount = false;
@@ -151,9 +152,10 @@ public static List<Transaction> LoadTransactions(){
             System.out.print("How much? Enter an amount ");
 
             try {
-                amount = scanner.nextDouble();
+                amountInput = scanner.nextLine();
                 scanner.nextLine();
                 validAmount = true;  // when input is valid this makes the loop exit
+                amount= Double.parseDouble(amountInput);
 
             } catch (InputMismatchException e) {
                 System.out.println(bold + red + "Wrong Input! please enter an amount in $ " + reset);
@@ -167,14 +169,10 @@ public static List<Transaction> LoadTransactions(){
         System.out.print("Vendor? From who??");
         vendor = scanner.nextLine();
         //type key word exit to cancel transaction
-        if (description.equalsIgnoreCase("exit")) {
+        if (description.equalsIgnoreCase("exit") || vendor.equalsIgnoreCase("exit") || amountInput.equalsIgnoreCase("exit")) {
             validDescription = false;
             validVendor=false;
-
-        }
-        if (vendor.equalsIgnoreCase("exit")) {
-            validVendor = false;
-            validDescription=false;
+            validAmount =false;
         }
         LocalTime Time = LocalTime.now();
         LocalDate Date = LocalDate.now();

@@ -74,6 +74,7 @@ public class Balance { // define ANSI color codes
         System.out.printf("%.3f",moneySpentThisMonth);//print the money spent this month
         System.out.print(reset);
 
+        // if net profit is negative it prints in red
         if(netProfitThisMonth>=0){
         System.out.print(blue+"\nNet Profit This Month: "+reset);
         System.out.print(green+bold);
@@ -107,7 +108,8 @@ public class Balance { // define ANSI color codes
             }
         }
          netProfitLastMonth=moneyEarnedLastMonth+moneySpentLastMonth;
-        //print the money spent last month
+        //print last month summary
+
         System.out.println(cyan + "\n-------------------------------------------------------------------------"+reset);
 
         System.out.print(blue+"Money Earned Last Month: "+reset);
@@ -118,7 +120,7 @@ public class Balance { // define ANSI color codes
         System.out.print(red+bold);
         System.out.printf("%.3f",moneySpentLastMonth);//print the money spent this month
         System.out.print(reset);
-
+       // if net profit is negative its prints in red
         if(netProfitLastMonth>=0) {
             System.out.print(blue + "\nNet Profit Last Month: " + reset);
             System.out.print(green + bold);
