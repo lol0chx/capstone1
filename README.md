@@ -12,11 +12,10 @@ The app allows you to:
 ---
 
 ## 📑 Table of Contents
-- [Home Menu](##Home-menu)
-- [Ledger](##Ledger )
+- [Home Menu](#home-menu)
+- [Ledger](#ledger )
 - [Reports](#reports)
-- [Balance Summary](#Balance Summary)
-- [How to Run](#how-to-run)
+- [Balance Summary](##Balance Summary)
 - [Screenshots](#screenshots)
 
 ## 🌟 Features & Highlights
