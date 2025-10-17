@@ -13,6 +13,7 @@ public class Balance { // define ANSI color codes
     public static final String purple = "\u001B[35m";
     public static final String cyan = "\u001B[36m";
     public static final String white = "\u001B[37m";
+    public static final String bold = "\u001B[1m";
     // get the loaded transactions from Transaction handler
     static List<Transaction> transactions = TransactionHandler.getTransactions();
     public static void balanceSummary(){
@@ -37,8 +38,14 @@ public class Balance { // define ANSI color codes
             currentBalance = currentBalance+ transaction.getAmount();
         }
         // print current balance
-        System.out.printf("Balance: %.3f",currentBalance);
-
+        double roundedBalance = Math.round(currentBalance*1000)/1000;
+        if(roundedBalance>=0) {
+            System.out.println(bold+green+"                      Balance:"+ roundedBalance+reset);
+        }
+        else {
+            System.out.println(bold+red+"                        Balance:"+roundedBalance+reset);
+        }
+        System.out.println(cyan + "-------------------------------------------------------------------------"+reset);
         LocalDate today = LocalDate.now();
 
         LocalDate startOfMonth = today.withDayOfMonth(1);   // get the start of the month
@@ -58,14 +65,31 @@ public class Balance { // define ANSI color codes
             }
         }
         netProfitThisMonth= moneyEarnedThisMonth+moneySpentThisMonth; // calculate net profit of the month
+        System.out.print(blue+"money earned this month: "+reset);
+        System.out.print(green+bold);
+        System.out.printf("%.3f",moneyEarnedThisMonth); // print the money earned this month
+        System.out.print(reset);
+        System.out.print(blue+"\nmoney spent this month: "+reset);
+        System.out.print(red+bold);
+        System.out.printf("%.3f",moneySpentThisMonth);//print the money spent this month
+        System.out.print(reset);
 
-        System.out.printf("\nmoney spent this month: %.3f"+red,moneySpentThisMonth);//print the money spent this month
-        System.out.println(reset);
-        System.out.printf("\nmoney earned this month: %.3f"+green,moneyEarnedThisMonth); // print the money earned this month
-        System.out.println(reset);
-        System.out.printf("\nNet Profit this month : %.3f",netProfitThisMonth);//print net profit of this month
+        if(netProfitThisMonth>=0){
+        System.out.print(blue+"\nNet Profit This Month: "+reset);
+        System.out.print(green+bold);
+        System.out.printf("%.3f",netProfitThisMonth);//print the money spent this month
+        System.out.print(reset);
+        }
+        else{
+            System.out.print(blue+"\nNet Profit This Month: "+reset);
+            System.out.print(red+bold);
+            System.out.printf("%.3f",netProfitThisMonth);//print the money spent this month
+            System.out.print(reset);
+        }
 
 
+
+        System.out.println(cyan + "\n-------------------------------------------------------------------------"+reset);
         //get the start and end of previous month days
         LocalDate startPrevMonth = today.minusMonths(1).withDayOfMonth(1);
         LocalDate endPrevMonth = startPrevMonth.withDayOfMonth(startPrevMonth.lengthOfMonth());
@@ -84,10 +108,32 @@ public class Balance { // define ANSI color codes
         }
          netProfitLastMonth=moneyEarnedLastMonth+moneySpentLastMonth;
         //print the money spent last month
-        System.out.printf("\nmoney spent Last month: %.3f",moneySpentLastMonth);
-        System.out.printf("\nmoney earned Last month: %.3f",moneyEarnedLastMonth); // print the money Last month
-        System.out.printf("\nNet Profit Last month : %.3f",netProfitLastMonth);//print net profit of this month
+        System.out.println(cyan + "\n-------------------------------------------------------------------------"+reset);
 
+        System.out.print(blue+"Money Earned Last Month: "+reset);
+        System.out.print(green+bold);
+        System.out.printf("%.3f",moneyEarnedLastMonth); // print the money earned this month
+        System.out.print(reset);
+        System.out.print(blue+"\nMoney Spent Last Month: "+reset);
+        System.out.print(red+bold);
+        System.out.printf("%.3f",moneySpentLastMonth);//print the money spent this month
+        System.out.print(reset);
+
+        if(netProfitLastMonth>=0) {
+            System.out.print(blue + "\nNet Profit Last Month: " + reset);
+            System.out.print(green + bold);
+            System.out.printf("%.3f", netProfitLastMonth);//print the money spent this month
+            System.out.print(reset);
+        }
+        else {
+            System.out.print(blue+"\nNet Profit Last Month: "+reset);
+            System.out.print(red+bold);
+            System.out.printf("%.3f",netProfitLastMonth);//print the money spent this month
+            System.out.print(reset);
+        }
+
+
+        System.out.println(cyan + "\n-------------------------------------------------------------------------"+reset);
 
 
         LocalDate startOfYear = today.withDayOfYear(1);  // get the start of the year
@@ -111,6 +157,33 @@ public class Balance { // define ANSI color codes
         System.out.printf("\nmoney earned this year: %.3f",moneyEarnedThisYear); // print the money earned this year
         System.out.printf("\nNet Profit this year : %.3f",netProfitThisYear);//print net profit of this year
 
+        System.out.println(cyan + "\n-------------------------------------------------------------------------"+reset);
+
+        System.out.print(blue+"Money Earned This Year: "+reset);
+        System.out.print(green+bold);
+        System.out.printf("%.3f",moneyEarnedThisYear); // print the money earned this month
+        System.out.print(reset);
+        System.out.print(blue+"\nMoney Spent This Year: "+reset);
+        System.out.print(red+bold);
+        System.out.printf("%.3f",moneySpentThisYear);//print the money spent this month
+        System.out.print(reset);
+
+        if(netProfitThisYear>=0) {
+            System.out.print(blue + "\nNet Profit This Year: " + reset);
+            System.out.print(green + bold);
+            System.out.printf("%.3f", netProfitThisYear);//print the money spent this month
+            System.out.print(reset);
+        }
+        else{
+            System.out.print(blue+"\nNet Profit This Year: "+reset);
+            System.out.print(red+bold);
+            System.out.printf("%.3f",netProfitThisYear);//print the money spent this month
+            System.out.print(reset);
+        }
+
+
+
+        System.out.println(cyan + "\n-------------------------------------------------------------------------"+reset);
 
         // get the start and end of the previous year
         LocalDate startOfPrevYear = today.minusYears(1).withDayOfYear(1);
@@ -132,9 +205,35 @@ public class Balance { // define ANSI color codes
 
         netProfitLastYear = moneySpentLastYear+moneyEarnedLastYear;
         // print the money spent last year
-        System.out.printf("\nmoney spent Last year: %.3f",moneySpentLastYear);
-        System.out.printf("\nmoney earned last year: %.3f",moneyEarnedLastYear); // print the money earned this year
-        System.out.printf("\nNet Profit last year : %.3f",netProfitLastYear);//print net profit of this year
+
+
+        System.out.println(cyan + "\n-------------------------------------------------------------------------"+reset);
+
+        System.out.print(blue+"Money Earned Last Year: "+reset);
+        System.out.print(green+bold);
+        System.out.printf("%.3f",moneyEarnedLastYear); // print the money earned this month
+        System.out.print(reset);
+        System.out.print(blue+"\nMoney Spent Last Year: "+reset);
+        System.out.print(red+bold);
+        System.out.printf("%.3f",moneySpentLastYear);//print the money spent this month
+        System.out.print(reset);
+
+        if(netProfitLastYear>=0) {
+            System.out.print(blue + "\nNet Profit Last Year: " + reset);
+            System.out.print(green + bold);
+            System.out.printf("%.3f", netProfitLastYear);//print the money spent this month
+            System.out.print(reset);
+        }
+        else {
+            System.out.print(blue+"\nNet Profit Last Year: "+reset);
+            System.out.print(red+bold);
+            System.out.printf("%.3f",netProfitLastYear);//print the money spent this month
+            System.out.print(reset);
+        }
+
+
+
+        System.out.println(cyan + "\n-------------------------------------------------------------------------"+reset);
         }
     }
 
