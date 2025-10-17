@@ -81,7 +81,7 @@ public static List<Transaction> LoadTransactions(){
 
         // Ask for an amount input and handle wrong input for amount
         while (!validAmount) { // loops until value is valid
-            System.out.println("How much? Enter an amount ");
+            System.out.print("How much? Enter an amount ");
 
             try {
                 amount = scanner.nextDouble();
@@ -95,10 +95,10 @@ public static List<Transaction> LoadTransactions(){
         }
         // Ask for description input and handle wrong input for description
 
-            System.out.println("what item are you selling  ");
+            System.out.print("what item are you selling  ");
             description = scanner.nextLine();
         // Ask for vendor input and handle wrong input for description
-            System.out.println("To who(Vendor)??");
+            System.out.print("To who(Vendor)??");
             vendor = scanner.nextLine();
 
 
@@ -133,7 +133,7 @@ public static List<Transaction> LoadTransactions(){
 
         // Ask for an amount input and handle wrong input for amount
         while (!validAmount) { // loops until value is valid
-            System.out.println("How much? Enter an amount ");
+            System.out.print("How much? Enter an amount ");
 
             try {
                 amount = scanner.nextDouble();
@@ -146,10 +146,10 @@ public static List<Transaction> LoadTransactions(){
             }
         }
         // Ask for description input and handle wrong input for description
-            System.out.println("Description? what are you buying ");
+            System.out.print("Description? what are you buying ");
                 description = scanner.nextLine();
         // Ask for vendor input and handle wrong input for description
-            System.out.println("Vendor? From who??");
+            System.out.print("Vendor? From who??");
                 vendor = scanner.nextLine();
         LocalTime Time= LocalTime.now();
         LocalDate Date = LocalDate.now();
