@@ -81,7 +81,7 @@ When adding a purchase, it prompts for:
 
 
 
-  ![Ledger Menu](screenshots/buyitem.png)
+  ![buy item ](screenshots/buyitem.png)
 
 
 
@@ -110,7 +110,7 @@ When adding a purchase, it prompts for:
 **Here's an example of a report output for Month to Date Transactions**
 
 
-![Ledger Menu](screenshots/mtdtxn.png)
+![mtdtxn](screenshots/mtdtxn.png)
 
 #### 🔎 Custom Search
 
@@ -123,6 +123,12 @@ Filter transactions with different options like.
 | 3 | Search by Description |
 | 4 | Search by Name             |
 | 0 | Search by Amount                     |
+
+**Here's an example of custom search by Name**
+
+
+![mtdtxn](screenshots/customsearch.png)
+
 
 
 ### 4️⃣Balance Summary
