@@ -67,6 +67,9 @@ When adding a purchase, it prompts for:
  
 
  **Here's an example of how buying an item works in action**
+
+
+
   ![Ledger Menu](screenshots/buyitem.png)
 
 
