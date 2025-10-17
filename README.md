@@ -10,6 +10,17 @@ The app allows you to:
 - Calculate **balances, money spent, money earned, and net profit** for different periods
 
 ---
+## 🌟 Features & Highlights
+
+- 🎛️ CLI menu with emojis and ANSI-colored text
+- 💰 Add deposits & make payments — cleanly saved
+- 📄 View ledger, sorted with most recent first
+- 📉 Built-in reports with real-time filters
+- 🔍 Custom search
+- 📊 Summary stats: income, expenses, and net balance
+- 🚫 Smart error handling — app doesn’t crash on bad input
+
+
 
 ## 📋 Home Menu
 
@@ -85,7 +96,7 @@ When adding a purchase, it prompts for:
 
 #### 📊 Reports
 
-**reports include:**
+**And Reports has options for:**
 
 
 |  |                            |
@@ -117,12 +128,3 @@ The Balance Summary calculates and displays :
  
 ![Balace summary ](screenshots/balancesummary.png)
 
-💻 Technology
-
-Java SE (8+)
-
-Console-based UI
-
-CSV file storage for transactions
-
-Reports and balance calculations based on transaction data
