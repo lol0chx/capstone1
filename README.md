@@ -55,3 +55,13 @@ When adding a sale, the app prompts for:
         // Ask for vendor input and handle wrong input for description
             System.out.print("To who(Vendor)??");
             vendor = scanner.nextLine();
+}
+```
+### 1️⃣ Add Sale (Sell Item)
+
+When adding a sale, the app prompts for:
+
+- **Item Name** – What are you selling?
+- **Amount** – Sale price
+- **Description** – Optional details
+
