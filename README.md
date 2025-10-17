@@ -34,11 +34,24 @@ When adding a sale, the app prompts for:
 - **Amount** – Sale price
 - **Description** – Optional details
 
-**Example Java Code to Record a Sale:**
+**sample code to sale :**
 
 ```java
-Transaction sale = TransactionInputHelper.getTransactionInput("sale");
-if(sale != null) {
-    TransactionHandler.saveTransaction(sale);
-    System.out.println("\n✅ Sale recorded successfully!");
-}
+ while (!validAmount) { // loops until value is valid
+            System.out.print("How much? Enter an amount ");
+            try {
+                amount = scanner.nextDouble();
+                scanner.nextLine();
+                validAmount = true;  // when input is valid this makes the loop exit
+
+            } catch (InputMismatchException e) {
+                System.out.println(bold+red+"Wrong Input! please enter an amount in $ "+reset);
+                scanner.nextLine(); // clear invalid input entered
+            }
+        }
+        // Ask for description input and handle wrong input for description
+            System.out.print("what item are you selling  ");
+            description = scanner.nextLine();
+        // Ask for vendor input and handle wrong input for description
+            System.out.print("To who(Vendor)??");
+            vendor = scanner.nextLine();

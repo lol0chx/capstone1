@@ -82,7 +82,6 @@ public static List<Transaction> LoadTransactions(){
         // Ask for an amount input and handle wrong input for amount
         while (!validAmount) { // loops until value is valid
             System.out.print("How much? Enter an amount ");
-
             try {
                 amount = scanner.nextDouble();
                 scanner.nextLine();
@@ -94,7 +93,6 @@ public static List<Transaction> LoadTransactions(){
             }
         }
         // Ask for description input and handle wrong input for description
-
             System.out.print("what item are you selling  ");
             description = scanner.nextLine();
         // Ask for vendor input and handle wrong input for description
