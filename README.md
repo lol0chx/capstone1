@@ -10,6 +10,15 @@ The app allows you to:
 - Calculate **balances, money spent, money earned, and net profit** for different periods
 
 ---
+
+## 📑 Table of Contents
+- [Home Menu](#Home menu)
+- [Ledger](#Add Sale )
+- [Reports](#reports)
+- [Balance Summary](#Balance Summary)
+- [How to Run](#how-to-run)
+- [Screenshots](#screenshots)
+
 ## 🌟 Features & Highlights
 
 - 🎛️ CLI menu with emojis and ANSI-colored text
@@ -20,13 +29,6 @@ The app allows you to:
 - 📊 Summary stats: income, expenses, and net profit
 - 🚫 Smart error handling — app doesn’t crash on bad input
 
-## 📑 Table of Contents
-- [Home Menu](#home-menu)
-- [Ledger](#Add Sale )
-- [Reports](#reports)
-- [Balance Summary](#Balance Summary)
-- [How to Run](#how-to-run)
-- [Screenshots](#screenshots)
 
 
 ## 📋 Home Menu
