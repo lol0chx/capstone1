@@ -85,4 +85,19 @@ reports include:
 | 3 | Previous Year Transactions |
 | 4 | Custom Search              |
 | 0 | Back                       |
- 
+🔎 Custom Search
+
+Filter transactions with different options like.
+
+|  |                           |
+|--------|---------------------------|
+| 1 | Search by Start Date |
+| 2 | Search by End Date  |
+| 3 | Search by Description |
+| 4 | Search by Name             |
+| 0 | Search by Amount                     |
+
+4️⃣ Balance Summary
+
+The Balance Summary calculates and displays:
+![Balace summary ](screenshots/balancesummary.png)
