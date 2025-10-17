@@ -118,7 +118,7 @@ public static List<Transaction> LoadTransactions(){
         transactions.add(deposit);// add it to our transactions list
         // write the record to transaction file
 
-        if (validDescription) {
+        if (validDescription || validVendor) {
             try {
                 FileWriter fileWriter = new FileWriter("transactions.csv", true);
                 BufferedWriter bufWriter = new BufferedWriter(fileWriter);
@@ -185,7 +185,7 @@ public static List<Transaction> LoadTransactions(){
         transactions.add(payment); // add is to our transactions list
         //write it to our transaction file
 
-        if (validDescription) {
+        if (validDescription||validVendor) {
             try {
                 FileWriter fileWriter = new FileWriter("transactions.csv", true);
                 BufferedWriter bufWriter = new BufferedWriter(fileWriter);
