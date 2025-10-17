@@ -95,7 +95,7 @@ public static List<Transaction> LoadTransactions(){
         }
         // Ask for description input and handle wrong input for description
 
-            System.out.println("Enter description(what are you selling) ");
+            System.out.println("what item are you selling  ");
             description = scanner.nextLine();
         // Ask for vendor input and handle wrong input for description
             System.out.println("To who(Vendor)??");
@@ -129,8 +129,7 @@ public static List<Transaction> LoadTransactions(){
         String description ="";
         String vendor="";
         boolean validAmount = false;
-        boolean validDescription = false;
-        boolean validVendor = false;
+
 
         // Ask for an amount input and handle wrong input for amount
         while (!validAmount) { // loops until value is valid

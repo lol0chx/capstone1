@@ -28,8 +28,7 @@ public class Reports {
             System.out.println("2. Previous Month Transactions");
             System.out.println("3. Year To Date Transactions");
             System.out.println("4. Previous Year Transactions");
-            System.out.println("5. Search by Vendor");
-            System.out.println("6. Custom Search");
+            System.out.println("5. Custom Search");
             System.out.println("0. Back");
             String choice = scanner.nextLine();
             int txnCntThisMonth=0;
@@ -148,57 +147,7 @@ public class Reports {
                     System.out.println(purple +txnCntLastYear + " transactions in total\n\n\n\n\n"+reset);
                     break;
 
-
                 case "5":
-                    boolean validVendor =false;
-                    String vendorName ="";
-                    while (!validVendor) { // loops until value is valid
-                        System.out.println("Enter vendor name to search");
-
-                        try {
-                           vendorName = scanner.nextLine().trim();
-                           // make the user enter at least 3 characters for an effective search
-                          if(vendorName.length()<3){
-                              System.out.println(bold+purple+"please enter at least 3 characters to search "+reset);
-                          }
-                          else {
-                              validVendor = true;  // when input is valid this makes the loop exit
-                          }
-
-                        } catch (InputMismatchException e) {
-                            System.out.println("Wrong Input! please enter a valid vendor name ");
-                            scanner.nextLine(); // clear invalid input entered
-                        }
-                    }
-
-                    //loop through all out transactions and check the vendor name
-                    int vendorMatch =0;
-                    List<Transaction> vendorFilteredList = new ArrayList<>();
-                    for (Transaction transaction : transactions) {
-                        if (transaction.getVendor().toLowerCase().contains(vendorName.toLowerCase())) { // doesnt have to be exact match
-                            vendorFilteredList.add(transaction);
-                            vendorMatch++;
-
-                        }
-                    }
-                    if(vendorFilteredList.isEmpty()){
-                        System.out.println(bold+red+"NO Matching transaction found!"+reset);
-                    }
-                    else {
-                        System.out.println(cyan + "    DATE  |  TIME  |DESCRIPTION| VENDOR | AMOUNT" + reset);
-                        System.out.println(cyan + "--------------------------------------------------------------------------" + reset);
-                        // print the list with the matches found
-                        for (Transaction transaction : vendorFilteredList) {
-                            if (transaction.amount > 0) {
-                                System.out.println(green + transaction + reset);
-                            } else
-                                System.out.println(red + transaction + reset);
-                        }
-                        System.out.println(cyan + "--------------------------------------------------------------------------" + reset);
-                        System.out.println(purple + vendorMatch + " transactions in total\n\n\n\n\n" + reset);
-                    }
-                    break;
-                case "6":
                     CustomSearch.customSearchMenu();
                     break;
 
