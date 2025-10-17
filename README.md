@@ -20,6 +20,13 @@ The app allows you to:
 - 📊 Summary stats: income, expenses, and net profit
 - 🚫 Smart error handling — app doesn’t crash on bad input
 
+## 📑 Table of Contents
+- [Home Menu](#home-menu)
+- [Ledger](#Add Sale Sell Item)
+- [Reports](#reports)
+- [Balance Summary](#balance-summary)
+- [How to Run](#how-to-run)
+- [Screenshots](#screenshots)
 
 
 ## 📋 Home Menu
@@ -37,7 +44,7 @@ The Home Page provide 4 options:
   
 ---
 
-### 1️⃣ Add Sale (Sell Item)
+## 1️⃣ Add Sale (Sell Item)
 
 When adding a sale, the app prompts for:
 
@@ -68,7 +75,7 @@ When adding a sale, the app prompts for:
             vendor = scanner.nextLine();
 }
 ```
-### 2️⃣ Add Purchase (Buy Item)
+## 2️⃣ Add Purchase (Buy Item)
 
 When adding a purchase, it prompts for:
 
@@ -86,7 +93,7 @@ When adding a purchase, it prompts for:
 
 
 
-  ### 3️⃣ Ledger
+  ## 3️⃣ Ledger
 
 
 **The Ledger menu has options to :**
@@ -94,7 +101,7 @@ When adding a purchase, it prompts for:
 
 ![Ledger Menu](screenshots/ledgermenu.png)
 
-#### 📊 Reports
+## 📊 Reports
 
 **And Reports has options for:**
 
@@ -131,7 +138,7 @@ Filter transactions with different options like.
 
 
 
-### 4️⃣Balance Summary
+## 4️⃣Balance Summary
 
 The Balance Summary calculates and displays :
 
