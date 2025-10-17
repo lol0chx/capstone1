@@ -30,9 +30,9 @@ The Home Page provide 4 options:
 
 When adding a sale, the app prompts for:
 
-- **Item Name** – What are you selling?
+- **Name** – to who you are selling ?
 - **Amount** – Sale price
-- **Description** – Optional details
+- **Description** – what the item is or description 
 
 **sample code to sale :**
 
@@ -57,11 +57,16 @@ When adding a sale, the app prompts for:
             vendor = scanner.nextLine();
 }
 ```
-### 1️⃣ Add Sale (Sell Item)
+### 2️⃣ Add Purchase (Buy Item)
 
-When adding a sale, the app prompts for:
+When adding a purchase, it prompts for:
 
-- **Item Name** – What are you selling?
+- **Vendor Name** – From where or who you're buying ?
 - **Amount** – Sale price
-- **Description** – Optional details
+- **Description** – description of the item
 
+
+  3️⃣ Ledger
+
+The Ledger menu has options to :
+![Ledger Menu](screenshots/ledgermenu.png)
