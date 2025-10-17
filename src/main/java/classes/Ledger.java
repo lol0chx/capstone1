@@ -65,6 +65,7 @@ public class Ledger {
                             PaymentsTransaction.add(paymentTransactions);
                             numberOfPaymentTransactions++; //count number of transactions
                         }
+
                     }
                     for (Transaction paymentTransaction : PaymentsTransaction) {
                         System.out.println(red+paymentTransaction+reset);
