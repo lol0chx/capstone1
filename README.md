@@ -143,10 +143,13 @@ The Balance Summary calculates and displays :
 
 You can enter "exit" for vendor name or description while buying and item or selling an item :
 ```java
-if (description.equalsIgnoreCase("exit") || vendor.equalsIgnoreCase("exit") || amountInput.equalsIgnoreCase("exit")) {
+if (description.equalsIgnoreCase("exit")) {
             validDescription = false;
             validVendor=false;
-            validAmount =false;
+        }
+        if(vendor.equalsIgnoreCase("exit")){
+            validVendor=false;
+            validDescription =false;
         }
 if (validDescription) {
             try {
