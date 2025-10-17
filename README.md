@@ -141,7 +141,7 @@ The Balance Summary calculates and displays :
 
 ## 💡 Interesting Code Snippet
 
-You can enter "exit" for vendor name or description while buying and item or selling an item :
+You can enter "exit" for vendor name or description while buying and item or selling an item to cancel transaction  :
 ```java
 if (description.equalsIgnoreCase("exit")) {
             validDescription = false;
