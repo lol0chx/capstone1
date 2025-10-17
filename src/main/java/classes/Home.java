@@ -14,7 +14,6 @@ public class Home {
     public static final String blue = "\u001B[34m";
     public static final String purple = "\u001B[35m";
     public static final String cyan = "\u001B[36m";
-    public static final String white = "\u001B[37m";
     public static final String bold = "\u001B[1m";
     static Scanner scanner = new Scanner(System.in);
     static List<Transaction> Transactions = TransactionHandler.LoadTransactions(); // Load all our transactions
@@ -31,7 +30,7 @@ public class Home {
             System.out.println(cyan + "====================================================================" + reset);
             System.out.println(green + "Welcome to FlipTrack! Your personal reseller assistant." + reset);
             System.out.println();
-            System.out.println(white + "Track all your buys, sales, and profits from Anywhere" + reset);
+            System.out.println("Track all your buys, sales, and profits from Anywhere" + reset);
             System.out.println(cyan + "====================================================================" + reset);
         System.out.println("1. Add sale (Sell Item)");
         System.out.println("2. Add Purchase (Buy Item)");

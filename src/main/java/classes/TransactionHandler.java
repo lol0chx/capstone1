@@ -18,7 +18,6 @@ public class TransactionHandler {
     public static final String blue = "\u001B[34m";
     public static final String purple = "\u001B[35m";
     public static final String cyan = "\u001B[36m";
-    public static final String white = "\u001B[37m";
     public static final String bold = "\u001B[1m";
     // Define our date and time formatter here
    static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");

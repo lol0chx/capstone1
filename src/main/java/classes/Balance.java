@@ -12,7 +12,6 @@ public class Balance { // define ANSI color codes
     public static final String blue = "\u001B[34m";
     public static final String purple = "\u001B[35m";
     public static final String cyan = "\u001B[36m";
-    public static final String white = "\u001B[37m";
     public static final String bold = "\u001B[1m";
     // get the loaded transactions from Transaction handler
     static List<Transaction> transactions = TransactionHandler.getTransactions();
