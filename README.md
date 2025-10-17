@@ -65,7 +65,7 @@ When adding a purchase, it prompts for:
 - **Amount** – Sale price
 - **Description** – description of the item
 ** Here's an example of how buying an item works in action
-  ![Ledger Menu](screenshots/buytiem.png)
+  ![Ledger Menu](screenshots/buyitem.png)
   3️⃣ Ledger
 
 **The Ledger menu has options to :**
