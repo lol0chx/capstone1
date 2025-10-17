@@ -153,9 +153,6 @@ public class Balance { // define ANSI color codes
         netProfitThisYear=moneyEarnedThisYear+moneySpentThisYear;
 
         // print the money spent this year
-        System.out.printf("\nmoney spent This year: %.3f",moneySpentThisYear);//print the money spent this year
-        System.out.printf("\nmoney earned this year: %.3f",moneyEarnedThisYear); // print the money earned this year
-        System.out.printf("\nNet Profit this year : %.3f",netProfitThisYear);//print net profit of this year
 
         System.out.println(cyan + "\n-------------------------------------------------------------------------"+reset);
 
