@@ -27,6 +27,7 @@ public class TransactionHandler {
     private static final List<Transaction> transactions = new ArrayList<>();
     //return our transaction list to access is in any class without having to load everytime
     public static List<Transaction> getTransactions() {
+
         return transactions;
     }
     // define load transactions method

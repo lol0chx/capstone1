@@ -76,6 +76,22 @@ When adding a sale, the app prompts for:
             vendor = scanner.nextLine();
 }
 ```
+
+## 🧭 UML Diagram
+
+A PlantUML class diagram for the project has been added at `diagrams/project.puml`.
+
+To render it locally you can use the PlantUML command-line tool or the PlantUML extension in your editor.
+
+Example (if you have plantuml installed or the plantuml.jar):
+
+```powershell
+# render a PNG from the .puml file
+java -jar path\to\plantuml.jar diagrams\project.puml
+```
+
+Or open `diagrams/project.puml` in any PlantUML-capable editor/extension to preview.
+
 ## 2️⃣ Add Purchase (Buy Item)
 
 When adding a purchase, it prompts for:

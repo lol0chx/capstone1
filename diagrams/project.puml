@@ -1,0 +1,70 @@
+@startuml
+title LE-FLIP — Class Diagram
+
+package classes {
+
+class Transaction {
+  - Date : java.time.LocalDate
+  - Time : java.time.LocalTime
+  - Description : String
+  - Vendor : String
+  - amount : double
+  + Transaction(date, time, description, vendor, amount)
+  + getDate() : java.time.LocalDate
+  + setDate(date : java.time.LocalDate) : void
+  + getTime() : java.time.LocalTime
+  + setTime(time : java.time.LocalTime) : void
+  + getDescription() : String
+  + setDescription(desc : String) : void
+  + getVendor() : String
+  + setVendor(vendor : String) : void
+  + getAmount() : double
+  + setAmount(amount : double) : void
+  + toString() : String
+}
+
+class TransactionHandler {
+  - transactions : java.util.List<Transaction>
+  + getTransactions() : java.util.List<Transaction>
+  + LoadTransactions() : java.util.List<Transaction>
+  + displayTransactions(transactions : java.util.List<Transaction>) : void
+  + takePayment() : void
+  + makePayment() : void
+}
+
+class Home {
+  + MainMenu() : void
+}
+
+class Ledger {
+  + ledgerMenu() : void
+}
+
+class Reports {
+  + reportsMenu() : void
+}
+
+class Balance {
+  + balanceSummary() : void
+}
+
+class CustomSearch {
+  + customSearchMenu() : void
+}
+
+}
+
+TransactionHandler "1" *-- "*" Transaction : manages >
+Ledger ..> TransactionHandler : uses
+Reports ..> TransactionHandler : uses
+Reports ..> CustomSearch : uses
+CustomSearch ..> TransactionHandler : uses
+Home ..> TransactionHandler : uses
+Balance ..> TransactionHandler : uses
+
+note right of TransactionHandler
+  - Stores runtime list of transactions
+  - Reads/writes transactions.csv
+end note
+
+@enduml
